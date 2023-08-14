@@ -14,13 +14,13 @@ const PORT = process.env.PORT || 3500;
 const serveFile = async (filePath, contentType, response) => {
     try {
         const rawData = await fsPromises.readFile(
-            filePath,
+            filePath, 
             !contentType.includes('image') ? 'utf8' : ''
         );
         const data = contentType === 'application/json'
             ? JSON.parse(rawData) : rawData;
         response.writeHead(
-            filePath.includes('404.html') ? 404 : 200,
+            filePath.includes('404.html') ? 404 : 200, 
             { 'Content-Type': contentType }
         );
         response.end(
@@ -32,7 +32,7 @@ const serveFile = async (filePath, contentType, response) => {
         response.statusCode = 500;
         response.end();
     }
-}
+};
 
 const server = http.createServer((req, res) => {
     console.log(req.url, req.method);
@@ -63,9 +63,9 @@ const server = http.createServer((req, res) => {
             break;
         default:
             contentType = 'text/html';
-    }
+    };
 
-    let filePath =
+    let filePath = 
         contentType === 'text/html' && req.url === '/'
             ? path.join(__dirname, 'views', 'index.html')
             : contentType === 'text/html' && req.url.slice(-1) === '/'
@@ -74,11 +74,11 @@ const server = http.createServer((req, res) => {
                     ? path.join(__dirname, 'views', req.url)
                     : path.join(__dirname, req.url);
 
-    // makes .html extension not required in the browser
-    if (!extension && req.url.slice(-1) !== '/') filePath += '.html';
+    //makes the .html extension not required in the browser
+    if (!extension && req.url.slice(-1) !== '/') filePath += '.html'; 
 
     const fileExists = fs.existsSync(filePath);
-
+    
     if (fileExists) {
         serveFile(filePath, contentType, res);
     } else {
@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
                 res.writeHead(301, { 'Location': '/' });
                 res.end();
                 break;
-            default:
+            default: 
                 serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res);
         }
     }
