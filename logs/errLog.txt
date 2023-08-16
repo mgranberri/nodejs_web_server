@@ -1,3 +1,7 @@
 20230814	13:30:18	527b936a-e4bf-4c62-bb85-d3185ed2f3fc	TypeError: fsPromises.readFil is not a function
 20230814	20:05:01	33297a98-6ab2-4a0d-b5df-33f016bc9281	Error: Not allowed by CORS
 20230814	20:10:19	082ed819-38c4-432d-9038-8b8348a742e9	ReferenceError: sendFile is not defined
+20230816	15:59:51	f9228191-54b1-4685-a7ec-7b47a0d5935f	SyntaxError: Unexpected token } in JSON at position 50
+20230816	16:10:20	a96f97de-afa0-48e3-bd73-80389c60368b	TypeError: Cannot read properties of undefined (reading 'id')
+20230816	16:12:42	13b4b83d-2f37-401f-8342-7c5c58baac39	TypeError: Cannot read properties of undefined (reading 'id')
+20230816	16:15:20	7145ce4d-1519-4e5c-9608-6afc9c41d69a	TypeError: Cannot read properties of undefined (reading 'id')
